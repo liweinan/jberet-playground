@@ -27,7 +27,7 @@ public class MyTest {
     @Test
     public void givenBatchlet_thenBatch_completeWithSuccess() throws Exception {
         JobOperator jobOperator = BatchRuntime.getJobOperator();
-        long executionId = jobOperator.start("simpleBatchLet", new Properties());
+        long executionId = jobOperator.start("simpleBatchletJob", new Properties());
         JobExecution jobExecution = jobOperator.getJobExecution(executionId);
         jobExecution = keepTestAlive(jobExecution);
         assertEquals(jobExecution.getBatchStatus(), BatchStatus.COMPLETED);
