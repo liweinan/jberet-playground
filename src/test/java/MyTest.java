@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import java.util.Properties;
 
 import static jakarta.batch.runtime.BatchStatus.COMPLETED;
+import static java.lang.Thread.sleep;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class MyTest {
@@ -17,24 +18,34 @@ public class MyTest {
     @Test
     public void givenChunk_thenBatch_completesWithSuccess() throws Exception {
         JobOperator jobOperator = BatchRuntime.getJobOperator();
-        Long executionId = jobOperator.start("simpleChunk", new Properties());
+        long executionId = jobOperator.start("simpleChunk", new Properties());
         JobExecution jobExecution = jobOperator.getJobExecution(executionId);
         jobExecution = keepTestAlive(jobExecution);
         assertEquals(jobExecution.getBatchStatus(), BatchStatus.COMPLETED);
     }
+
+    @Test
+    public void givenBatchlet_thenBatch_completeWithSuccess() throws Exception {
+        JobOperator jobOperator = BatchRuntime.getJobOperator();
+        long executionId = jobOperator.start("simpleBatchLet", new Properties());
+        JobExecution jobExecution = jobOperator.getJobExecution(executionId);
+        jobExecution = keepTestAlive(jobExecution);
+        assertEquals(jobExecution.getBatchStatus(), BatchStatus.COMPLETED);
+    }
+
 
     private JobExecution keepTestAlive(JobExecution jobExecution) throws InterruptedException {
         int maxTries = 0;
         while (!jobExecution.getBatchStatus().equals(COMPLETED)) {
             if (maxTries < MAX_TRIES) {
                 maxTries++;
-                Thread.sleep(THREAD_SLEEP);
+                sleep(THREAD_SLEEP);
                 jobExecution = BatchRuntime.getJobOperator().getJobExecution(jobExecution.getExecutionId());
             } else {
                 break;
             }
         }
-        Thread.sleep(THREAD_SLEEP);
+        sleep(THREAD_SLEEP);
         return jobExecution;
     }
 

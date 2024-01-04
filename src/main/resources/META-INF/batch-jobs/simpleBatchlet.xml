@@ -1,0 +1,5 @@
+<job id="simpleBatchLet">
+    <step id="firstStep" >
+        <batchlet ref="simpleBatchlet"/>
+    </step>
+</job>
