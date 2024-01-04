@@ -1,0 +1,9 @@
+<job id="simpleChunk">
+    <step id="firstChunkStep">
+        <chunk item-count="3">
+            <reader ref="itemReader"/>
+            <processor ref="itemProcessor"/>
+            <writer ref="writer"/>
+        </chunk>
+    </step>
+</job>
