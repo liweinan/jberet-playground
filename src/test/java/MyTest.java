@@ -33,6 +33,14 @@ public class MyTest {
         assertEquals(jobExecution.getBatchStatus(), BatchStatus.COMPLETED);
     }
 
+    @Test
+    public void givenPartition_thenBatch_completesWithSuccess() throws Exception {
+        JobOperator jobOperator = BatchRuntime.getJobOperator();
+        long executionId = jobOperator.start("myPartitionJob", new Properties());
+        JobExecution jobExecution = jobOperator.getJobExecution(executionId);
+        jobExecution = keepTestAlive(jobExecution);
+        assertEquals(jobExecution.getBatchStatus(), BatchStatus.COMPLETED);
+    }
 
     private JobExecution keepTestAlive(JobExecution jobExecution) throws InterruptedException {
         int maxTries = 0;

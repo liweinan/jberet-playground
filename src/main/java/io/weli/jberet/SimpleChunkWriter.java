@@ -6,7 +6,7 @@ import jakarta.inject.Named;
 import java.util.ArrayList;
 import java.util.List;
 
-@Named("writer")
+@Named("itemWriter")
 public class SimpleChunkWriter extends AbstractItemWriter {
     List<Integer> processed = new ArrayList<>();
 

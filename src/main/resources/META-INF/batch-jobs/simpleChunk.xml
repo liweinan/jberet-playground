@@ -3,7 +3,7 @@
         <chunk item-count="3">
             <reader ref="itemReader"/>
             <processor ref="itemProcessor"/>
-            <writer ref="writer"/>
+            <writer ref="itemWriter"/>
         </chunk>
     </step>
 </job>
