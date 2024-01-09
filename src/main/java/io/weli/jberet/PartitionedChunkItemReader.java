@@ -8,6 +8,7 @@ import jakarta.inject.Named;
 
 import java.io.Serializable;
 
+// https://learning.oreilly.com/library/view/java-ee-7/9781449370589/ch15.html#I_sect115_id290992
 @Named("partitionedChunkReader")
 public class PartitionedChunkItemReader extends AbstractItemReader {
     private Integer[] tokens;
