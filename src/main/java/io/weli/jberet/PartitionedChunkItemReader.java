@@ -40,11 +40,10 @@ public class PartitionedChunkItemReader extends AbstractItemReader {
         System.out.println("START -> " + start);
         if (Integer.parseInt(start) == 1) {
             tokens = new Integer[]{1, 2, 3, 4, 5};
-            count = 0;
         } else {
             tokens = new Integer[]{6, 7, 8, 9, 10};
-            count = 0;
         }
+        count = 0;
 
     }
 
