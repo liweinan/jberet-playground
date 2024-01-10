@@ -25,6 +25,7 @@
         <version.org.jboss.weld.weld-se>5.1.2.Final</version.org.jboss.weld.weld-se>
         <version.jakarta.validation-api>3.0.2</version.jakarta.validation-api>
         <version.com.fasterxml.jackson>2.16.0</version.com.fasterxml.jackson>
+        <version.com.h2database>2.2.224</version.com.h2database>
     </properties>
     <dependencies>
         <dependency>
@@ -62,6 +63,11 @@
 <!--            <artifactId>jakarta.validation-api</artifactId>-->
 <!--            <version>${version.jakarta.validation-api}</version>-->
 <!--        </dependency>-->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>${version.com.h2database}</version>
+        </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
