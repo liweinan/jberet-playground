@@ -19,7 +19,8 @@
 
     <properties>
         <version.jakarta.batch-api>2.1.1</version.jakarta.batch-api>
-        <version.jberet>2.2.0.Final</version.jberet>
+<!--        <version.jberet>2.2.0.Final</version.jberet>-->
+        <version.jberet>2.2.1-SNAPSHOT</version.jberet>
         <version.jberet.support>2.1.2.Final</version.jberet.support>
         <version.jakarta-transaction-api>2.0.1</version.jakarta-transaction-api>
         <version.org.jboss.weld.weld-se>5.1.2.Final</version.org.jboss.weld.weld-se>
@@ -27,6 +28,12 @@
         <version.com.fasterxml.jackson>2.16.0</version.com.fasterxml.jackson>
         <version.com.h2database>2.2.224</version.com.h2database>
         <version.junit>5.8.1</version.junit>
+        <version.jberet-jpa>2.1.4.Final</version.jberet-jpa>
+        <version.jakarta.persistence>3.1.0</version.jakarta.persistence>
+        <version.org.hibernate>6.1.6.Final</version.org.hibernate>
+        <version.jandex>3.0.5</version.jandex>
+        <version.narayana>7.0.0.Final</version.narayana>
+        <version.weld>3.0.5.Final</version.weld>
     </properties>
 
     <modules>
@@ -77,9 +84,46 @@
                 <version>${version.com.h2database}</version>
             </dependency>
             <dependency>
+                <groupId>org.jberet</groupId>
+                <artifactId>jberet-jpa-repository</artifactId>
+                <version>${version.jberet-jpa}</version>
+            </dependency>
+            <dependency>
                 <groupId>org.junit.jupiter</groupId>
                 <artifactId>junit-jupiter</artifactId>
                 <version>${version.junit}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>jakarta.persistence</groupId>
+                <artifactId>jakarta.persistence-api</artifactId>
+                <version>${version.jakarta.persistence}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.hibernate.orm</groupId>
+                <artifactId>hibernate-core</artifactId>
+                <version>${version.org.hibernate}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.smallrye</groupId>
+                <artifactId>jandex</artifactId>
+                <version>${version.jandex}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.weld.module</groupId>
+                <artifactId>weld-jta</artifactId>
+                <version>${version.weld}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.narayana.jta</groupId>
+                <artifactId>narayana-jta</artifactId>
+                <version>${version.narayana}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.jboss.logmanager</groupId>
+                        <artifactId>jboss-logmanager</artifactId>
+                    </exclusion>
+                </exclusions>
                 <scope>test</scope>
             </dependency>
         </dependencies>
