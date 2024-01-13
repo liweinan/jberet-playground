@@ -34,8 +34,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class MyTestIT {
 
-    private static final int MAX_TRIES = 40;
-    private static final int THREAD_SLEEP = 1000;
 
 //    private static JobRepository repo;
 //
@@ -83,23 +81,23 @@ public class MyTestIT {
 //        repo = new JpaRepository(entityManager);
 //    }
 
-    @Test
-    @Disabled
-    public void givenChunk_thenBatch_completesWithSuccess() throws Exception {
-
+//    @Test
+//    @Disabled
+//    public void givenChunk_thenBatch_completesWithSuccess() throws Exception {
+//
 //        setupDb();
-
-        JobOperatorImpl jobOperator = (JobOperatorImpl) ((DelegatingJobOperator) BatchRuntime.getJobOperator()).getDelegate();
+//
+//        JobOperatorImpl jobOperator = (JobOperatorImpl) ((DelegatingJobOperator) BatchRuntime.getJobOperator()).getDelegate();
 //        var env = (BatchSEEnvironment) jobOperator.getBatchEnvironment();
 //        env.setJobRepository(repo);
-
-
-        long executionId = jobOperator.start("simpleChunk", new Properties());
-        JobExecution jobExecution = jobOperator.getJobExecution(executionId);
-        jobExecution = keepTestAlive(jobExecution);
-        assertEquals(jobExecution.getBatchStatus(), BatchStatus.COMPLETED);
-    }
-
+//
+//
+//        long executionId = jobOperator.start("simpleChunk", new Properties());
+//        JobExecution jobExecution = jobOperator.getJobExecution(executionId);
+//        jobExecution = keepTestAlive(jobExecution);
+//        assertEquals(jobExecution.getBatchStatus(), BatchStatus.COMPLETED);
+//    }
+//
 //    @Test
 //    public void givenBatchlet_thenBatch_completeWithSuccess() throws Exception {
 //        JobOperator jobOperator = BatchRuntime.getJobOperator();
@@ -118,19 +116,6 @@ public class MyTestIT {
 //        assertEquals(jobExecution.getBatchStatus(), BatchStatus.COMPLETED);
 //    }
 
-    private JobExecution keepTestAlive(JobExecution jobExecution) throws InterruptedException {
-        int maxTries = 0;
-        while (!jobExecution.getBatchStatus().equals(COMPLETED)) {
-            if (maxTries < MAX_TRIES) {
-                maxTries++;
-                sleep(THREAD_SLEEP);
-                jobExecution = BatchRuntime.getJobOperator().getJobExecution(jobExecution.getExecutionId());
-            } else {
-                break;
-            }
-        }
-        sleep(THREAD_SLEEP);
-        return jobExecution;
-    }
+
 
 }
