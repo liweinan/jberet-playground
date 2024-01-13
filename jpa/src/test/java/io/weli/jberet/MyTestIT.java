@@ -1,4 +1,4 @@
-//import jakarta.batch.operations.JobOperator;
+package io.weli.jberet;//import jakarta.batch.operations.JobOperator;
 import jakarta.batch.runtime.BatchRuntime;
 import jakarta.batch.runtime.BatchStatus;
 import jakarta.batch.runtime.JobExecution;
@@ -8,7 +8,6 @@ import jakarta.batch.runtime.JobExecution;
 //import jakarta.persistence.spi.PersistenceUnitTransactionType;
 //import org.h2.jdbcx.JdbcDataSource;
 //import org.hibernate.jpa.boot.spi.Bootstrap;
-import org.hibernate.jpa.boot.spi.EntityManagerFactoryBuilder;
 //import org.jberet.jpa.repository.JpaRepository;
 //import org.jberet.jpa.repository.entity.JobExecutionJpa;
 //import org.jberet.jpa.repository.entity.JobInstanceJpa;
@@ -17,9 +16,9 @@ import org.hibernate.jpa.boot.spi.EntityManagerFactoryBuilder;
 //import org.jberet.jpa.util.BatchPersistenceUnitInfo;
 import org.jberet.operations.DelegatingJobOperator;
 import org.jberet.operations.JobOperatorImpl;
-import org.jberet.repository.JobRepository;
-//import org.jberet.se.BatchSEEnvironment;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+//import org.jberet.se.BatchSEEnvironment;
 
 //import java.util.Arrays;
 //import java.util.HashMap;
@@ -33,7 +32,7 @@ import static java.lang.Thread.sleep;
 //import static org.hibernate.cfg.AvailableSettings.SHOW_SQL;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class MyTest {
+public class MyTestIT {
 
     private static final int MAX_TRIES = 40;
     private static final int THREAD_SLEEP = 1000;
@@ -84,7 +83,8 @@ public class MyTest {
 //        repo = new JpaRepository(entityManager);
 //    }
 
-//    @Test
+    @Test
+    @Disabled
     public void givenChunk_thenBatch_completesWithSuccess() throws Exception {
 
 //        setupDb();

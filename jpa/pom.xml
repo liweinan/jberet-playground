@@ -18,6 +18,10 @@
 
     <properties>
         <version.maven.wildfly.plugin>5.0.0.Beta2</version.maven.wildfly.plugin>
+        <resteasy.ver>6.2.7.Final</resteasy.ver>
+        <jakarta.servlet.ver>6.0.0</jakarta.servlet.ver>
+        <version.maven.wildfly.plugin>5.0.0.Beta2</version.maven.wildfly.plugin>
+        <version.rest-assured>5.4.0</version.rest-assured>
     </properties>
 
     <dependencies>
@@ -81,6 +85,7 @@
             <groupId>io.smallrye</groupId>
             <artifactId>jandex</artifactId>
         </dependency>
+
         <!--        <dependency>-->
         <!--            <groupId>org.jboss.weld.module</groupId>-->
         <!--            <artifactId>weld-jta</artifactId>-->
@@ -97,6 +102,30 @@
         <!--            </exclusions>-->
         <!--            <scope>test</scope>-->
         <!--        </dependency>-->
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>${version.rest-assured}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
+            <version>${jakarta.servlet.ver}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.resteasy</groupId>
+            <artifactId>resteasy-core-spi</artifactId>
+            <version>${resteasy.ver}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.resteasy</groupId>
+            <artifactId>resteasy-core</artifactId>
+            <version>${resteasy.ver}</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
@@ -104,19 +133,26 @@
                 <groupId>org.wildfly.plugins</groupId>
                 <artifactId>wildfly-maven-plugin</artifactId>
                 <version>${version.maven.wildfly.plugin}</version>
+                <configuration>
+                    <galleon-options>
+                        <galleon.offline>false</galleon.offline>
+                        <jboss-fork-embedded>true</jboss-fork-embedded>
+                    </galleon-options>
+                </configuration>
                 <executions>
                     <execution>
-                        <id>wildfly-deploy</id>
+                        <id>wildfly-start</id>
                         <phase>pre-integration-test</phase>
                         <goals>
+                            <goal>start</goal>
                             <goal>deploy</goal>
                         </goals>
                     </execution>
                     <execution>
-                        <id>wildfly-undeploy</id>
-                        <phase>clean</phase>
+                        <phase>post-integration-test</phase>
+                        <id>wildfly-stop</id>
                         <goals>
-                            <goal>undeploy</goal>
+                            <goal>shutdown</goal>
                         </goals>
                     </execution>
                 </executions>
@@ -124,9 +160,26 @@
             <plugin>
                 <artifactId>maven-failsafe-plugin</artifactId>
                 <configuration>
+                    <testClassesDirectory>${project.build.testOutputDirectory}</testClassesDirectory>
                     <includes>
                         <include>**/*IT.java</include>
                     </includes>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>integration-test</goal>
+                            <goal>verify</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <excludes>
+                        <exclude>**/*IT.java</exclude>
+                    </excludes>
                 </configuration>
             </plugin>
         </plugins>
