@@ -12,9 +12,9 @@
     <name>jberet-playground-jpa</name>
     <description>JBeret Playground - Simple Example with JPA repository</description>
 
-    <artifactId>jpa</artifactId>
+    <artifactId>batch-jpa</artifactId>
     <version>1.0.0-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <packaging>war</packaging>
 
     <properties>
         <version.maven.wildfly.plugin>5.0.0.Beta2</version.maven.wildfly.plugin>
@@ -130,6 +130,13 @@
     <build>
         <plugins>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <configuration>
+                    <warName>batch-jpa</warName>
+                </configuration>
+            </plugin>
+            <plugin>
                 <groupId>org.wildfly.plugins</groupId>
                 <artifactId>wildfly-maven-plugin</artifactId>
                 <version>${version.maven.wildfly.plugin}</version>
@@ -147,6 +154,9 @@
                             <goal>start</goal>
                             <goal>deploy</goal>
                         </goals>
+                        <configuration>
+                            <filename>batch-jpa.war</filename>
+                        </configuration>
                     </execution>
                     <execution>
                         <phase>post-integration-test</phase>
