@@ -9,7 +9,7 @@ public class MyTestIT {
 
     @Test
     public void testApi() {
-        assertEquals("COMPLETED", RestAssured.given().baseUri("http://localhost/batch-jpa").basePath("/batch/start").port(8080)
+        assertEquals("COMPLETED", RestAssured.given().baseUri("http://localhost/batch-deployment").basePath("/batch/start").port(8080)
                 .get().asString());
     }
 

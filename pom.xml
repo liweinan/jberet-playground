@@ -38,7 +38,7 @@
 
     <modules>
         <module>simple</module>
-        <module>jpa</module>
+        <module>deployment</module>
     </modules>
 
     <dependencyManagement>

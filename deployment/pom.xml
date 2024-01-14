@@ -9,10 +9,10 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <name>jberet-playground-jpa</name>
+    <name>jberet-playground-deployment</name>
     <description>JBeret Playground - Simple Example with JPA repository</description>
 
-    <artifactId>batch-jpa</artifactId>
+    <artifactId>batch-deployment</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
@@ -71,7 +71,7 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
                 <configuration>
-                    <warName>batch-jpa</warName>
+                    <warName>batch-deployment</warName>
                 </configuration>
             </plugin>
             <plugin>
@@ -93,7 +93,7 @@
                             <goal>deploy</goal>
                         </goals>
                         <configuration>
-                            <filename>batch-jpa.war</filename>
+                            <filename>batch-deployment.war</filename>
                         </configuration>
                     </execution>
                     <execution>
