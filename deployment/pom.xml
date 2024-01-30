@@ -17,7 +17,7 @@
     <packaging>war</packaging>
 
     <properties>
-        <version.maven.wildfly.plugin>5.0.0.Beta2</version.maven.wildfly.plugin>
+        <version.maven.wildfly.plugin>5.0.0.Beta3</version.maven.wildfly.plugin>
         <resteasy.ver>6.2.7.Final</resteasy.ver>
         <jakarta.servlet.ver>6.0.0</jakarta.servlet.ver>
         <version.maven.wildfly.plugin>5.0.0.Beta2</version.maven.wildfly.plugin>
