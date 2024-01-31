@@ -19,7 +19,7 @@
 
     <properties>
         <version.jakarta.batch-api>2.1.1</version.jakarta.batch-api>
-        <version.jberet>2.2.0.Final</version.jberet>
+        <version.jberet>2.2.1.Final</version.jberet>
 <!--        <version.jberet>2.2.1-SNAPSHOT</version.jberet>-->
         <version.jberet.support>2.1.2.Final</version.jberet.support>
         <version.jakarta-transaction-api>2.0.1</version.jakarta-transaction-api>
