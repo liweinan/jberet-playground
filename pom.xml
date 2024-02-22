@@ -32,7 +32,7 @@
         <version.jakarta.persistence>3.1.0</version.jakarta.persistence>
         <version.org.hibernate>6.4.4.Final</version.org.hibernate>
         <version.jandex>3.1.6</version.jandex>
-        <version.narayana>7.0.0.Final</version.narayana>
+        <version.narayana>7.0.1.Final</version.narayana>
         <version.weld>5.1.2.Final</version.weld>
     </properties>
 
