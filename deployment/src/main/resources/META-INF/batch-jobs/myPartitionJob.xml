@@ -12,6 +12,7 @@
             <writer ref="itemWriter"></writer>
         </chunk>
         <partition>
+            <!-- `end` 其实在例子里没有用到 -->
             <plan partitions="2" threads="2">
                 <properties partition="0">
                     <property name="start" value="1"/>

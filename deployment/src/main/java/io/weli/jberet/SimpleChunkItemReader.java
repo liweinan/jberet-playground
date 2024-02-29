@@ -15,6 +15,7 @@ public class SimpleChunkItemReader extends AbstractItemReader {
     @Inject
     JobContext jobContext;
 
+    // return null means there is no more data to read for processing.
     @Override
     public Integer readItem() throws Exception {
         if (count >= tokens.length) {
