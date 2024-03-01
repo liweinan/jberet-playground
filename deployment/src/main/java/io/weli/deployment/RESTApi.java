@@ -1,4 +1,4 @@
-package io.weli.jberet;
+package io.weli.deployment;
 
 import jakarta.batch.operations.JobOperator;
 import jakarta.batch.runtime.BatchRuntime;

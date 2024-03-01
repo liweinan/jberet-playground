@@ -1,4 +1,4 @@
-package io.weli.jberet;
+package io.weli.jberet.se;
 
 import jakarta.batch.api.BatchProperty;
 import jakarta.batch.api.chunk.AbstractItemReader;

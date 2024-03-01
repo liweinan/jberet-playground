@@ -1,4 +1,4 @@
-package io.weli.jberet;
+package io.weli.deployment;
 
 import io.restassured.RestAssured;
 import org.junit.jupiter.api.Test;
