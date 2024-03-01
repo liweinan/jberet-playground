@@ -29,11 +29,6 @@ public class RESTApi {
             System.out.println("e -> " + e);
             return "ERR";
         }
-
-
-
-
-
     }
 
     private static final int MAX_TRIES = 40;

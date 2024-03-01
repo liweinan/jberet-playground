@@ -25,6 +25,8 @@ public class PartitionedChunkItemReader extends AbstractItemReader {
     @BatchProperty(name = "end")
     private String end;
 
+    // 每个partition有各自的`count`
+    // `jobContext`在各个`partition`里面各自独立
     @Override
     public Integer readItem() throws Exception {
         if (count >= tokens.length) {
@@ -38,6 +40,9 @@ public class PartitionedChunkItemReader extends AbstractItemReader {
     @Override
     public void open(Serializable checkpoint) throws Exception {
         System.out.println("START -> " + start);
+        // 根据`start`参数来进行partition.
+        // 注意是threads并行
+        // 看一下`myPartitionJob.xml`
         if (Integer.parseInt(start) == 1) {
             tokens = new Integer[]{1, 2, 3, 4, 5};
         } else {

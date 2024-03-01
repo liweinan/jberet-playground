@@ -1,4 +1,4 @@
-package io.weli.jberet;
+package io.weli.jberet.simple;
 
 import jakarta.batch.api.chunk.AbstractItemWriter;
 import jakarta.inject.Named;
