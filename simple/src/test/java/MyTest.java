@@ -1,4 +1,5 @@
 import jakarta.batch.operations.JobOperator;
+import jakarta.batch.operations.JobRestartException;
 import jakarta.batch.runtime.BatchRuntime;
 import jakarta.batch.runtime.BatchStatus;
 import jakarta.batch.runtime.JobExecution;
@@ -9,6 +10,7 @@ import java.util.Properties;
 import static jakarta.batch.runtime.BatchStatus.COMPLETED;
 import static java.lang.Thread.sleep;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class MyTest {
 
@@ -25,15 +27,6 @@ public class MyTest {
     }
 
     @Test
-    public void givenBatchlet_thenBatch_completeWithSuccess() throws Exception {
-        JobOperator jobOperator = BatchRuntime.getJobOperator();
-        long executionId = jobOperator.start("simpleBatchletJob", new Properties());
-        JobExecution jobExecution = jobOperator.getJobExecution(executionId);
-        jobExecution = keepTestAlive(jobExecution);
-        assertEquals(jobExecution.getBatchStatus(), BatchStatus.COMPLETED);
-    }
-
-    @Test
     public void givenPartition_thenBatch_completesWithSuccess() throws Exception {
         JobOperator jobOperator = BatchRuntime.getJobOperator();
         long executionId = jobOperator.start("myPartitionJob", new Properties());
@@ -41,6 +34,23 @@ public class MyTest {
         jobExecution = keepTestAlive(jobExecution);
         assertEquals(jobExecution.getBatchStatus(), BatchStatus.COMPLETED);
     }
+
+    @Test
+    public void testRestart1() throws Exception {
+        assertThrows(JobRestartException.class,
+                () -> {
+                    JobOperator jobOperator = BatchRuntime.getJobOperator();
+                    long executionId = jobOperator.start("simpleBatchletJob", new Properties());
+                    JobExecution jobExecution = jobOperator.getJobExecution(executionId);
+
+                    // jakarta.batch.operations.JobRestartException: JBERET000647: Restarting job execution 5, job name simpleBatchletJob, batch status STARTED, restart mode null, but it seems the original execution is still alive.
+                    jobOperator.restart(executionId, null);
+
+                    jobExecution = keepTestAlive(jobExecution);
+                    assertEquals(jobExecution.getBatchStatus(), BatchStatus.COMPLETED);
+                });
+    }
+
 
     private JobExecution keepTestAlive(JobExecution jobExecution) throws InterruptedException {
         int maxTries = 0;
@@ -56,5 +66,6 @@ public class MyTest {
         sleep(THREAD_SLEEP);
         return jobExecution;
     }
+
 
 }
