@@ -1,0 +1,11 @@
+<job id="checkpointJob">
+    <step id="firstChunkStep">
+        <chunk item-count="2" checkpoint-policy="custom">
+            <reader ref="itemReader"/>
+            <processor ref="itemProcessor"/>
+            <writer ref="itemWriter"/>
+            <!-- the checkpoint will determine the write points -->
+            <checkpoint-algorithm ref="customCheckPoint"/>
+        </chunk>
+    </step>
+</job>
