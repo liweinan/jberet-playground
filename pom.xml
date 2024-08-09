@@ -30,7 +30,7 @@
         <version.junit>5.10.3</version.junit>
         <version.jberet-jpa>2.1.4.Final</version.jberet-jpa>
         <version.jakarta.persistence>3.2.0</version.jakarta.persistence>
-        <version.org.hibernate>6.5.2.Final</version.org.hibernate>
+        <version.org.hibernate>6.6.0.Final</version.org.hibernate>
         <version.jandex>3.2.2</version.jandex>
         <version.narayana>7.0.2.Final</version.narayana>
         <version.weld>5.1.2.Final</version.weld>
