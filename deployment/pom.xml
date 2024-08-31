@@ -72,7 +72,7 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
                 <configuration>
-                    <warName>batch-deployment.war</warName>
+                    <warName>batch-deployment</warName>
                 </configuration>
             </plugin>
             <plugin>
