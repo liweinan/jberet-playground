@@ -66,12 +66,13 @@
         </dependency>
     </dependencies>
     <build>
+        <finalName>batch-deployment</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
                 <configuration>
-                    <warName>batch-deployment</warName>
+                    <warName>batch-deployment.war</warName>
                 </configuration>
             </plugin>
             <plugin>
