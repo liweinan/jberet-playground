@@ -20,7 +20,7 @@
     <properties>
         <version.jakarta.batch-api>2.1.1</version.jakarta.batch-api>
         <version.jberet>2.2.1.Final</version.jberet>
-<!--        <version.jberet>2.2.1-SNAPSHOT</version.jberet>-->
+        <!--        <version.jberet>2.2.1-SNAPSHOT</version.jberet>-->
         <version.jberet.support>2.1.2.Final</version.jberet.support>
         <version.jakarta-transaction-api>2.0.1</version.jakarta-transaction-api>
         <version.org.jboss.weld.weld-se>5.1.2.Final</version.org.jboss.weld.weld-se>
@@ -41,8 +41,14 @@
         <module>deployment</module>
     </modules>
 
+
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter-api</artifactId>
+                <version>${version.junit}</version>
+            </dependency>
             <dependency>
                 <groupId>jakarta.batch</groupId>
                 <artifactId>jakarta.batch-api</artifactId>
@@ -89,12 +95,6 @@
                 <version>${version.jberet-jpa}</version>
             </dependency>
             <dependency>
-                <groupId>org.junit.jupiter</groupId>
-                <artifactId>junit-jupiter</artifactId>
-                <version>${version.junit}</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
                 <groupId>jakarta.persistence</groupId>
                 <artifactId>jakarta.persistence-api</artifactId>
                 <version>${version.jakarta.persistence}</version>
@@ -128,4 +128,22 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.junit.jupiter</groupId>
+                            <artifactId>junit-jupiter-engine</artifactId>
+                            <version>${version.junit}</version>
+                        </dependency>
+                    </dependencies>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
 </project>

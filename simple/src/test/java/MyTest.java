@@ -28,6 +28,7 @@ public class MyTest {
         jobExecution = keepTestAlive(jobExecution, COMPLETED);
         assertEquals(jobExecution.getBatchStatus(), BatchStatus.COMPLETED);
     }
+
     @Test
     @Disabled
     public void testCheckpoint() throws Exception {
@@ -78,7 +79,6 @@ public class MyTest {
                     assertEquals(jobExecution.getBatchStatus(), BatchStatus.COMPLETED);
                 });
     }
-
 
 
     private JobExecution keepTestAlive(JobExecution jobExecution, BatchStatus status) throws InterruptedException {
