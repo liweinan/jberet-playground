@@ -1,4 +1,4 @@
-package io.weli.deployment;
+package io.weli.deployment.partitioned;
 
 import jakarta.batch.api.BatchProperty;
 import jakarta.batch.api.chunk.AbstractItemReader;
