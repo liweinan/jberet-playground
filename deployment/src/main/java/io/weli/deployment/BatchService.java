@@ -12,7 +12,8 @@ import static jakarta.batch.runtime.BatchStatus.COMPLETED;
 import static java.lang.Thread.sleep;
 
 @Path("/batch")
-public class RESTApi {
+public class BatchService {
+
     @GET
     @Path("/start")
     public String start() {
