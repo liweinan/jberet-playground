@@ -9,10 +9,10 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <name>jberet-playground-simple</name>
-    <description>JBeret Playground - Simple Example with JDBC repository</description>
+    <name>jberet-playground-standalone</name>
+    <description>JBeret Playground - Standalone Example</description>
 
-    <artifactId>simple</artifactId>
+    <artifactId>standalone</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
@@ -37,10 +37,12 @@
         <dependency>
             <groupId>org.jboss.weld</groupId>
             <artifactId>weld-core-impl</artifactId>
+            <version>${version.org.jboss.weld.weld}</version>
         </dependency>
         <dependency>
             <groupId>org.jboss.weld.se</groupId>
             <artifactId>weld-se-core</artifactId>
+            <version>${version.org.jboss.weld.weld-se}</version>
         </dependency>
         <!--        <dependency>-->
         <!--            <groupId>jakarta.validation</groupId>-->
