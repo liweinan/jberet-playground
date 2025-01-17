@@ -13,7 +13,11 @@ public class CustomCheckPoint extends AbstractCheckpointAlgorithm {
 
     @Override
     public boolean isReadyToCheckpoint() throws Exception {
+
         int counterRead = (Integer) jobContext.getTransientUserData();
+
+        System.out.println("isReadyToCheckpoint -> counterRead: " + counterRead);
+
         return counterRead % 3 == 0;
     }
 }

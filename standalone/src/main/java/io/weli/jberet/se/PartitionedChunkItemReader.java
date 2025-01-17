@@ -32,6 +32,8 @@ public class PartitionedChunkItemReader extends AbstractItemReader {
         }
 
         System.out.println("jobContext: " + jobContext + ", count: " + count);
+
+        // could be used in place like `CustomCheckPoint`
         jobContext.setTransientUserData(count);
         return tokens[count++];
     }
