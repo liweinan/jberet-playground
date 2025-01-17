@@ -32,7 +32,6 @@ public class PartitionedChunkItemReader extends AbstractItemReader {
         if (count >= tokens.length) {
             return null;
         }
-
         jobContext.setTransientUserData(count);
         return tokens[count++];
     }
@@ -43,6 +42,7 @@ public class PartitionedChunkItemReader extends AbstractItemReader {
         // 根据`start`参数来进行partition.
         // 注意是threads并行
         // 看一下`myPartitionJob.xml`
+        // 所以在具体的逻辑里要实现partition.
         if (Integer.parseInt(start) == 1) {
             tokens = new Integer[]{1, 2, 3, 4, 5};
         } else {
