@@ -4,8 +4,8 @@
         <chunk item-count="3">
             <reader ref="partitionedChunkReader">
                 <properties>
-                    <property name="start" value="#{partitionPlan['start']}"/>
-                    <property name="end" value="#{partitionPlan['end']}"/>
+                    <property name="startVal" value="#{partitionPlan['start']}"/>
+                    <property name="endVal" value="#{partitionPlan['end']}"/>
                 </properties>
             </reader>
             <processor ref="itemProcessor"></processor>

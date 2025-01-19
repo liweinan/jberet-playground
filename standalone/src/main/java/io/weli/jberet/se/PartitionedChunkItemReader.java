@@ -18,11 +18,11 @@ public class PartitionedChunkItemReader extends AbstractItemReader {
     JobContext jobContext;
 
     @Inject
-    @BatchProperty(name = "start")
+    @BatchProperty(name = "startVal")
     private String start;
 
     @Inject
-    @BatchProperty(name = "end")
+    @BatchProperty(name = "endVal")
     private String end;
 
     @Override
