@@ -50,6 +50,11 @@
         <!--            <version>${version.jakarta.validation-api}</version>-->
         <!--        </dependency>-->
         <dependency>
+            <groupId>io.weli.jberet</groupId>
+            <artifactId>commons</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
         </dependency>
@@ -67,7 +72,7 @@
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
-            <version>42.7.5</version>
+            <version>${version.postgresql}</version>
             <scope>optional</scope>
         </dependency>
     </dependencies>

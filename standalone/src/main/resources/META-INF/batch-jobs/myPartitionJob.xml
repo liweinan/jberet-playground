@@ -4,8 +4,8 @@
         <chunk item-count="3">
             <reader ref="partitionedChunkReader">
                 <properties>
-                    <property name="startVal" value="#{partitionPlan['start']}"/>
-                    <property name="endVal" value="#{partitionPlan['end']}"/>
+                    <property name="isFirstPartition" value="#{partitionPlan['firstPartition']}"/>
+<!--                    <property name="endVal" value="#{partitionPlan['end']}"/>-->
                 </properties>
             </reader>
             <processor ref="itemProcessor"></processor>
@@ -14,12 +14,12 @@
         <partition>
             <plan partitions="2" threads="2">
                 <properties partition="0">
-                    <property name="start" value="1"/>
-                    <property name="end" value="5"/>
+                    <property name="firstPartition" value="true"/>
+<!--                    <property name="end" value="5"/>-->
                 </properties>
                 <properties partition="1">
-                    <property name="start" value="6"/>
-                    <property name="end" value="10"/>
+                    <property name="firstPartition" value="false"/>
+<!--                    <property name="end" value="10"/>-->
                 </properties>
             </plan>
         </partition>

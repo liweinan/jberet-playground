@@ -13,6 +13,7 @@ public class SimpleChunkWriter extends AbstractItemWriter {
     @Override
     public void writeItems(List<Object> items) throws Exception {
         items.stream().map(Integer.class::cast).forEach(processed::add);
-        System.out.println("items -> " + items);
+        // items是一组进来
+        System.out.println("writing items -> " + items);
     }
 }
