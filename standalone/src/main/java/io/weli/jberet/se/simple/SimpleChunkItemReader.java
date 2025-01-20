@@ -7,6 +7,8 @@ import jakarta.inject.Named;
 
 import java.io.Serializable;
 
+import static io.weli.jberet.Commons.sleepRandomSeconds;
+
 @Named("itemReader")
 public class SimpleChunkItemReader extends AbstractItemReader {
     private Integer[] tokens;
@@ -17,6 +19,7 @@ public class SimpleChunkItemReader extends AbstractItemReader {
 
     @Override
     public Integer readItem() throws Exception {
+        sleepRandomSeconds(5);
         if (count >= tokens.length) {
             return null;
         }
