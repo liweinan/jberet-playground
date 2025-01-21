@@ -1,6 +1,7 @@
 <!--https://learning.oreilly.com/library/view/java-ee-7/9781449370589/ch15.html#I_sect115_id290992-->
 <job id="myPartitionJob">
     <step id="myStep">
+<!--        the item-count is used by checkpoint policy-->
         <chunk item-count="3">
             <reader ref="partitionedChunkReader">
                 <properties>
