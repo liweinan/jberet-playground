@@ -12,7 +12,7 @@ public class SimpleChunkItemProcessor implements ItemProcessor {
 
     @Override
     public Integer processItem(Object t) {
-        sleepRandomSeconds(5);
+//        sleepRandomSeconds(5);
         System.out.println("processing item -> " + t);
         Integer item = (Integer) t;
 //        return item % 2 == 0 ? item : null;
