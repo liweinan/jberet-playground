@@ -30,7 +30,7 @@
         <version.jberet-jpa>2.1.4.Final</version.jberet-jpa>
         <version.jakarta.persistence>3.2.0</version.jakarta.persistence>
         <version.org.hibernate>6.6.5.Final</version.org.hibernate>
-        <version.jandex>3.2.3</version.jandex>
+        <version.jandex>3.2.4</version.jandex>
         <version.narayana>7.2.0.Final</version.narayana>
         <version.weld>6.0.0.Final</version.weld>
         <version.postgresql>42.7.5</version.postgresql>
