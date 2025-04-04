@@ -22,7 +22,7 @@
         <version.jberet>3.1.0.Final</version.jberet>
         <version.jberet.support>2.1.2.Final</version.jberet.support>
         <version.jakarta-transaction-api>2.0.1</version.jakarta-transaction-api>
-        <version.org.jboss.weld.weld-se>6.0.1.Final</version.org.jboss.weld.weld-se>
+        <version.org.jboss.weld.weld-se>6.0.2.Final</version.org.jboss.weld.weld-se>
         <version.jakarta.validation-api>3.0.2</version.jakarta.validation-api>
         <version.com.fasterxml.jackson>2.16.0</version.com.fasterxml.jackson>
         <version.com.h2database>2.3.232</version.com.h2database>
