@@ -20,7 +20,7 @@
         <version.maven.wildfly.plugin>5.1.3.Final</version.maven.wildfly.plugin>
         <resteasy.ver>6.2.12.Final</resteasy.ver>
         <jakarta.servlet.ver>6.1.0</jakarta.servlet.ver>
-        <version.rest-assured>5.5.1</version.rest-assured>
+        <version.rest-assured>5.5.5</version.rest-assured>
     </properties>
 
     <dependencies>
