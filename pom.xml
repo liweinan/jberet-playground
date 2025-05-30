@@ -33,7 +33,7 @@
         <version.jandex>3.3.1</version.jandex>
         <version.narayana>7.2.2.Final</version.narayana>
         <version.weld>6.0.3.Final</version.weld>
-        <version.postgresql>42.7.5</version.postgresql>
+        <version.postgresql>42.7.6</version.postgresql>
     </properties>
 
     <modules>
