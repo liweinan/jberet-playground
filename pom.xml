@@ -26,7 +26,7 @@
         <version.jakarta.validation-api>3.0.2</version.jakarta.validation-api>
         <version.com.fasterxml.jackson>2.16.0</version.com.fasterxml.jackson>
         <version.com.h2database>2.3.232</version.com.h2database>
-        <version.junit>5.11.4</version.junit>
+        <version.junit>5.13.2</version.junit>
         <version.jberet-jpa>2.1.4.Final</version.jberet-jpa>
         <version.jakarta.persistence>3.2.0</version.jakarta.persistence>
         <version.org.hibernate>7.0.1.Final</version.org.hibernate>
